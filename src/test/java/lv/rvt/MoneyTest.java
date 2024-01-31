@@ -3,6 +3,7 @@ package lv.rvt;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.matches;
 
 import org.junit.Test;
@@ -18,14 +19,34 @@ public class MoneyTest {
         Money macins2 = new Money(5, 90);
         Money macins3 = macins1.plus(macins2);
 
-        assertEquals(16, macins3.euros());
-        assertEquals(0, macins3.cents());
-
-
+        assertEquals(15, macins3.euros());
+        assertEquals(100, macins3.cents());
     }
+
+    @Test
+    public void testMinusMethod(){
+        Money macins1 = new Money(21, 90);
+        Money macins2 = new Money(10, 8);
+        Money macins3 = macins1.minus(macins2);
+
+        assertEquals(11, macins3.euros());
+        assertEquals(82, macins3.cents()); 
+    }
+
+    @Test
     public void testLessThan(){
-        assertFalse(macins1.lessThan(macins2));
-        assertTrue(macins1.lessThan(macins2));
+        
+        Money macins1 = new Money(10, 10);
+        Money macins2 = new Money(5, 90);
+        Money macins3 = new Money(23, 67);
+
+        boolean result1 = macins1.lessThan(macins2);
+        boolean result2 = macins3.lessThan(macins1);
+
+        assertTrue(result1);
+        assertTrue(result2);
     }
+
+
 
 }
