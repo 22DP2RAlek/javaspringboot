@@ -43,4 +43,26 @@ public class MainProgram {
         return array;
     }
 
+    public static int binarySearch(int[] array, int searchedValue) {
+
+        int startIndex = 0;
+        int endIndex = array.length - 1;
+
+        while (startIndex <= endIndex) {
+            int middleIndex = (endIndex + startIndex ) / 2 ;
+
+            if (array[middleIndex] == searchedValue) {
+                return searchedValue;
+            }
+            if (array[middleIndex] < searchedValue){
+                startIndex = middleIndex + 1;
+            }
+            if (array[middleIndex] > searchedValue) {
+                endIndex = middleIndex - 1;
+            }
+        }
+        return -1;
+    }
+
+
 }

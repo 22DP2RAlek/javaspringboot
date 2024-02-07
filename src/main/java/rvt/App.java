@@ -19,6 +19,7 @@ public class App {
         MainProgram.swap(numbers, 0, 3);
         System.out.println(Arrays.toString(numbers));
 
+        System.out.println(MainProgram.binarySearch(numbers, 2));
     }
     public static void smallestIndex(int[] numbers){
         System.out.println("Smallest: " + MainProgram.smallest(numbers));
